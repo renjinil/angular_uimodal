@@ -1,0 +1,21 @@
+
+<style type="text/css">
+	.pop{
+		background-color: #fff;
+		padding: 50px;
+		border-radius: 15px;
+	}
+	button{
+		margin-top: 40px;
+		margin-left: 50px;
+	}
+	.tid{
+		padding-bottom:40px;
+	}
+</style>
+<div class="pop col-xs-12">
+<p class="tid col-xs-12"><span  class="col-xs-4" translate="taski"></span><input  class="col-xs-7" type="text" name=""  ng-model="task_id"></p>
+<p class="col-xs-12"><span class="col-xs-4" translate="taskn"></span><input class="col-xs-7"  type="text" name="" ng-model="task_name"></p>
+<button class="col-xs-4 add" ng-click="addData()" translate="add" >add</button>
+<button class="col-xs-4 cancel" ng-click="cancel()" translate="cancel">cancel</button>
+</div>

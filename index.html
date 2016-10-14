@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular</title>
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+	<script type="text/javascript" src="node_modules/angular-mocks/angular-mocks.js"></script>
+	<script src="node_modules/angular-translate-loader-partial/angular-translate-loader-partial.min.js" 	 ></script>
+	<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> 
+	<script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-app="PopupDemo">
+<div ng-controller="PopupDemoCont">
+<h2 class="text-center" translate="headline"></h2>
+
+ <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <table class="col-xs-12 todo_tab">
+                    <thead>
+                        <tr class="border_top">
+                            <th class="col-xs-1">#</th>
+                            <th class="col-xs-2 title" translate="taski">Task Id</th>
+                            <th class="col-xs-2 title" translate="taskn">Task Name</th>
+                            <th class="col-xs-4 title" translate="check">Completed</th>
+                            <th class="col-xs-3 title" translate="rmtask">Remove Task</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in todo_data" class="table_row border_top" ng-class="{'selected':$index==selectedRow}" ng-click="setClickedRow($index)">
+                            <td class="col-xs-1">{{$index+1}}</td>
+                            <td class="col-xs-2">{{todo_data[$index].task_id}}</td>
+                            <td class="col-xs-2">{{data.task_name}}</td>
+                            <td class="col-xs-4">
+                                <input type="checkbox" name="check" ng-model="data.cheked">
+                            </td>
+                            <td class="col-xs-3 add"><a href="#" ng-click="remove($index)">Remove</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-1"> </div>
+            <div class="col-xs-4"></div><div class="col-xs-4" style="padding-top:50px"><select ng-model="lang" ng-change="trans(lang)" ng-init="lang='en'">
+	<option value="en">english</option>
+	<option value="ma">malayalam</option>
+</select>
+<button style="margin-left:50px" ng-click="open()" class="btn btn-warning" translate="sub">Language</button></div><div class="col-xs-4"> <span translate="name">enter your name</span><input type="text" name="name" ng-model="name"></div>
+           
+            </div>
+</body>
+</html>
